@@ -30,9 +30,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        intPosition = videoView.getCurrentPosition();
+    }
+
+    @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        intPosition = videoView.getCurrentPosition();
         outState.putInt("intPosition",intPosition);
     }
 }
